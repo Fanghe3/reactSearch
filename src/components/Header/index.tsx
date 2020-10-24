@@ -102,7 +102,7 @@ const Header: React.FC<Props> = (props) => {
 
     const newSearchMovies = props.movies.filter((movie: any) => {
       
-      return movie.Title.toLowerCase().includes(search);
+      return movie.Title.toLowerCase().includes(search); //contains does not work
     });
     props.setTempMovies(newSearchMovies);
   }

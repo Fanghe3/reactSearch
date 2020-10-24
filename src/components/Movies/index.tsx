@@ -10,7 +10,7 @@ type Props = {
 };
 
 
-const API_KEY = "eb7f19c3";
+const API_KEY = process.env.REACT_APP_APP_KEY;
 
 const series = ["avengers", "fast and furious", "iron man", "harry potter"];
 
@@ -29,7 +29,7 @@ const Movies: React.FC<Props> = ({ movies,tempMovies, setMovies, setTempMovies }
   useEffect(() => {
     const promises = series.map((item) => {
       return fetch(
-        `http://www.omdbapi.com/?s=${encodeURIComponent(
+        `https://www.omdbapi.com/?s=${encodeURIComponent(
           item
         )}&apikey=${API_KEY}`
       ).then((res) => res.json());
@@ -45,12 +45,11 @@ const Movies: React.FC<Props> = ({ movies,tempMovies, setMovies, setTempMovies }
 
       console.log("updatedmovies1", updatedmovies);
 
-      
-      console.log("updatedmovies2", updatedmovies);     
+      console.log("updatedmovies2", updatedmovies);
       setMovies(updatedmovies); //working
       setTempMovies(updatedmovies);
     });
-  }, []);
+  }, [movies, setMovies, setTempMovies]);
 
    
   
