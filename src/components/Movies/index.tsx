@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./style.css";
 import Movie from "./Movie";
 
+
 type Props = {
   movies: any[],
   tempMovies: any[],
@@ -11,6 +12,8 @@ type Props = {
 
 
 const API_KEY = process.env.REACT_APP_APP_KEY;
+
+console.log(API_KEY);
 
 const series = ["avengers", "fast and furious", "iron man", "harry potter"];
 
@@ -44,12 +47,12 @@ const Movies: React.FC<Props> = ({ movies,tempMovies, setMovies, setTempMovies }
         .map(myMovieMap);
 
       console.log("updatedmovies1", updatedmovies);
-
+   debugger;
       console.log("updatedmovies2", updatedmovies);
       setMovies(updatedmovies); //working
       setTempMovies(updatedmovies);
     });
-  }, [movies, setMovies, setTempMovies]);
+  }, []);
 
    
   
